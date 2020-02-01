@@ -465,8 +465,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       }
 
       // Disable copy from lvalue.
-      unique_ptr(const unique_ptr&) = delete;
-      unique_ptr& operator=(const unique_ptr&) = delete;
+      unique_ptr(const unique_ptr&) = delete; // If you see an error here, you probably forgot to use std::move with unique_ptr
+      unique_ptr& operator=(const unique_ptr&) = delete; // If you see an error here, you probably forgot to use std::move with unique_ptr
   };
 
   /// 20.7.1.3 unique_ptr for array objects with a runtime length
