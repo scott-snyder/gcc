@@ -32,6 +32,7 @@ along with GCC; see the file COPYING3.  If not see
 #include "gcc-rich-location.h"
 #include "spellcheck-tree.h"
 #include "parser.h"
+#include "plugin.h"
 #include "c-family/name-hint.h"
 #include "c-family/known-headers.h"
 #include "c-family/c-spellcheck.h"
@@ -5143,6 +5144,12 @@ finish_nonmember_using_decl (tree scope, tree name)
     {
       tree *slot = find_namespace_slot (current_namespace, name, true);
 
+      {
+	tree using_decl = build_lang_decl (USING_DECL, lookup.name, NULL_TREE);
+	USING_DECL_SCOPE (using_decl) = scope;
+	invoke_plugin_callbacks (PLUGIN_FINISH_DECL, using_decl);
+      }
+
       tree value = MAYBE_STAT_DECL (*slot);
       tree type = MAYBE_STAT_TYPE (*slot);
 
@@ -7265,6 +7272,9 @@ add_using_namespace (vec<tree, va_gc> *&usings, tree target)
 	return;
 
   vec_safe_push (usings, target);
+
+  tree stmt = build_stmt (input_location, USING_STMT, target);
+  invoke_plugin_callbacks (PLUGIN_FINISH_DECL, stmt);
 }
 
 /* Tell the debug system of a using directive.  */
