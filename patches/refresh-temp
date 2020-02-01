@@ -1,0 +1,44 @@
+Bottom: 980d5c447476a20e78eff325b469fa47d64df285
+Top:    4f332ce3b7101ca65c78e507990edff0feda5f3e
+Author: scott snyder <sss@karma>
+Date:   2020-02-01 10:42:38 -0500
+
+Refresh of name-lookup
+
+---
+
+diff --git a/gcc/cp/name-lookup.c b/gcc/cp/name-lookup.c
+index 2447166a444..274aab86c57 100644
+--- a/gcc/cp/name-lookup.c
++++ b/gcc/cp/name-lookup.c
+@@ -32,6 +32,7 @@ along with GCC; see the file COPYING3.  If not see
+ #include "gcc-rich-location.h"
+ #include "spellcheck-tree.h"
+ #include "parser.h"
++#include "plugin.h"
+ #include "c-family/name-hint.h"
+ #include "c-family/known-headers.h"
+ #include "c-family/c-spellcheck.h"
+@@ -5135,6 +5136,12 @@ finish_nonmember_using_decl (tree scope, tree name)
+     {
+       tree *slot = find_namespace_slot (current_namespace, name, true);
+ 
++      {
++	tree using_decl = build_lang_decl (USING_DECL, lookup.name, NULL_TREE);
++	USING_DECL_SCOPE (using_decl) = scope;
++	invoke_plugin_callbacks (PLUGIN_FINISH_DECL, using_decl);
++      }
++
+       tree value = MAYBE_STAT_DECL (*slot);
+       tree type = MAYBE_STAT_TYPE (*slot);
+ 
+@@ -7257,6 +7264,9 @@ add_using_namespace (vec<tree, va_gc> *&usings, tree target)
+ 	return;
+ 
+   vec_safe_push (usings, target);
++
++  tree stmt = build_stmt (input_location, USING_STMT, target);
++  invoke_plugin_callbacks (PLUGIN_FINISH_DECL, stmt);
+ }
+ 
+ /* Tell the debug system of a using directive.  */
