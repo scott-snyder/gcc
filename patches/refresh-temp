@@ -1,0 +1,21 @@
+Bottom: 8b9756d6deb587856634a0d194e9faf11725524e
+Top:    8995dca717e96bc6507dcbcf3beef4fddcadc811
+Author: scott snyder <sss@karma>
+Date:   2020-02-01 10:39:25 -0500
+
+Refresh of make
+
+---
+
+diff --git a/gcc/Makefile.in b/gcc/Makefile.in
+index b1423d1dbfd..6549b90dad3 100644
+--- a/gcc/Makefile.in
++++ b/gcc/Makefile.in
+@@ -3558,6 +3558,7 @@ PLUGIN_HEADERS = $(TREE_H) $(CONFIG_H) $(SYSTEM_H) coretypes.h $(TM_H) \
+   tree-ssa-alias.h $(INTERNAL_FN_H) gimple-fold.h tree-eh.h gimple-expr.h \
+   gimple.h is-a.h memmodel.h $(TREE_PASS_H) $(GCC_PLUGIN_H) \
+   $(GGC_H) $(TREE_DUMP_H) $(PRETTY_PRINT_H) $(OPTS_H) $(PARAMS_H) \
++  $(INSN_ATTR_H) \
+   $(tm_file_list) $(tm_include_list) $(tm_p_file_list) $(tm_p_include_list) \
+   $(host_xm_file_list) $(host_xm_include_list) $(xm_include_list) \
+   intl.h $(PLUGIN_VERSION_H) $(DIAGNOSTIC_H) ${C_TREE_H} \
