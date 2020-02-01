@@ -31,6 +31,7 @@ along with GCC; see the file COPYING3.  If not see
 #include "gcc-rich-location.h"
 #include "spellcheck-tree.h"
 #include "parser.h"
+#include "plugin.h"
 #include "c-family/name-hint.h"
 #include "c-family/known-headers.h"
 #include "c-family/c-spellcheck.h"
@@ -6992,6 +6993,7 @@ finish_nonmember_using_decl (tree scope, tree name)
 
   if (current_binding_level->kind == sk_namespace)
     {
+      invoke_plugin_callbacks (PLUGIN_FINISH_DECL, using_decl);
       tree *slot = find_namespace_slot (current_namespace, name, true);
       tree *mslot = get_fixed_binding_slot (slot, name,
 					    BINDING_SLOT_CURRENT, true);
@@ -9255,6 +9257,9 @@ add_using_namespace (vec<tree, va_gc> *&usings, tree target,
 
   if (!old)
     vec_safe_push (usings, decl);
+
+  tree stmt = build_stmt (input_location, USING_STMT, target);
+  invoke_plugin_callbacks (PLUGIN_FINISH_DECL, stmt);
 }
 
 /* Convenience overload for the above, taking the user as its first
