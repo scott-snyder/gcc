@@ -1,5 +1,5 @@
-Bottom: d752f7c52081263a9db69228f9298054d7dc21bf
-Top:    f798a0be1c6b525de380909bbf9d5df0ea78c7da
+Bottom: 409a1af2b2b665946ba6cea0f10dde3d1f9fa53d
+Top:    9e7059c4b64fc7c35aa6021e3d8a3be8eed947fb
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:42:02 -0500
 
@@ -9,10 +9,10 @@ unique_ptr warning
 ---
 
 diff --git a/libstdc++-v3/include/bits/unique_ptr.h b/libstdc++-v3/include/bits/unique_ptr.h
-index d03266c1878..e738350c3e7 100644
+index 3695214808b..3062c62d6ab 100644
 --- a/libstdc++-v3/include/bits/unique_ptr.h
 +++ b/libstdc++-v3/include/bits/unique_ptr.h
-@@ -461,8 +461,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
+@@ -464,8 +464,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        }
  
        // Disable copy from lvalue.

@@ -1,5 +1,5 @@
-Bottom: f798a0be1c6b525de380909bbf9d5df0ea78c7da
-Top:    60568335f954ce8190b49c147569e6e81c1b19d5
+Bottom: 9e7059c4b64fc7c35aa6021e3d8a3be8eed947fb
+Top:    e58fe2b954ba71079ed195878a1bc5947576faaf
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:42:33 -0500
 
@@ -9,7 +9,7 @@ name lookup plugin extensions
 ---
 
 diff --git a/gcc/cp/name-lookup.c b/gcc/cp/name-lookup.c
-index 8dd0b0d723e..28d291fd8b4 100644
+index 9b68b15be60..92d0f0780bd 100644
 --- a/gcc/cp/name-lookup.c
 +++ b/gcc/cp/name-lookup.c
 @@ -32,6 +32,7 @@ along with GCC; see the file COPYING3.  If not see
@@ -20,7 +20,7 @@ index 8dd0b0d723e..28d291fd8b4 100644
  #include "c-family/name-hint.h"
  #include "c-family/known-headers.h"
  #include "c-family/c-spellcheck.h"
-@@ -5138,6 +5139,12 @@ finish_nonmember_using_decl (tree scope, tree name)
+@@ -5141,6 +5142,12 @@ finish_nonmember_using_decl (tree scope, tree name)
      {
        tree *slot = find_namespace_slot (current_namespace, name, true);
  
@@ -33,7 +33,7 @@ index 8dd0b0d723e..28d291fd8b4 100644
        tree value = MAYBE_STAT_DECL (*slot);
        tree type = MAYBE_STAT_TYPE (*slot);
  
-@@ -7260,6 +7267,9 @@ add_using_namespace (vec<tree, va_gc> *&usings, tree target)
+@@ -7263,6 +7270,9 @@ add_using_namespace (vec<tree, va_gc> *&usings, tree target)
  	return;
  
    vec_safe_push (usings, target);
