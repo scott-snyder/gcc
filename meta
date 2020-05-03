@@ -1,9 +1,10 @@
 Version: 1
-Previous: 22f831981a33c0ee2a86a6e1b799f88d5b77e1f1
-Head: 06e35fb89add80e9811eaab326fe2c0082fc0ac4
+Previous: 549b37398193c6a3a57b4d6f6eb34f12f67c9152
+Head: 2a6530632bf38007c73084d72c23f59e31ec9eff
 Applied:
   gitignore: f0bfb1d3d9ff066620271af0fa48afac186529d9
   make: e9dd7f6881655f7bb2fd8c2ecb17fb1277bb3665
   unique_warning: 06e35fb89add80e9811eaab326fe2c0082fc0ac4
+  name-lookup: 2a6530632bf38007c73084d72c23f59e31ec9eff
 Unapplied:
 Hidden:
