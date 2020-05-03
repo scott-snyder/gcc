@@ -1,0 +1,19 @@
+Bottom: 0c6d42ed78b174471c666cd52a9b20772f91af3f
+Top:    7afab1d9a022a8f7d7fae57182898673bd8af320
+Author: scott snyder <sss@karma>
+Date:   2020-05-03 10:34:22 -0400
+
+gitignore additions
+
+
+---
+
+diff --git a/.gitignore b/.gitignore
+index d9d3967a12c..dd80578383e 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,3 +1,4 @@
++NOTES
+ *.diff
+ *.patch
+ *.orig
