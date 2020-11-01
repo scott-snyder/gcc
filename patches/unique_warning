@@ -1,5 +1,5 @@
-Bottom: 5420e097243dcce7eadf5c6cfce1fcdc4ce22bc3
-Top:    594d91eca00ab4ce0ccfe6afa94446913c966da3
+Bottom: 5d01bd190a8f2f90a00a3393d5a22ff0a2c52faa
+Top:    123e6f1cc33f7964c4075e76472eebf43e7a6b2e
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:42:02 -0500
 
@@ -8,18 +8,5 @@ unique_ptr warning
 
 ---
 
-diff --git a/libstdc++-v3/include/bits/unique_ptr.h b/libstdc++-v3/include/bits/unique_ptr.h
-index 3695214808b..3062c62d6ab 100644
---- a/libstdc++-v3/include/bits/unique_ptr.h
-+++ b/libstdc++-v3/include/bits/unique_ptr.h
-@@ -464,8 +464,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
-       }
- 
-       // Disable copy from lvalue.
--      unique_ptr(const unique_ptr&) = delete;
--      unique_ptr& operator=(const unique_ptr&) = delete;
-+      unique_ptr(const unique_ptr&) = delete; // If you see an error here, you probably forgot to use std::move with unique_ptr
-+      unique_ptr& operator=(const unique_ptr&) = delete; // If you see an error here, you probably forgot to use std::move with unique_ptr
-   };
- 
-   /// 20.7.1.3 unique_ptr for array objects with a runtime length
+libstdc++-v3/include/bits/unique_ptr.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)

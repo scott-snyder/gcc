@@ -1,5 +1,5 @@
-Bottom: 594d91eca00ab4ce0ccfe6afa94446913c966da3
-Top:    2e7fb289c02c3b129d5656948fe69427f75db7d8
+Bottom: 123e6f1cc33f7964c4075e76472eebf43e7a6b2e
+Top:    86aa62facd6b1cb86894bad229367c6b2b8eb329
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:42:33 -0500
 
@@ -8,38 +8,5 @@ name lookup plugin extensions
 
 ---
 
-diff --git a/gcc/cp/name-lookup.c b/gcc/cp/name-lookup.c
-index 9b68b15be60..92d0f0780bd 100644
---- a/gcc/cp/name-lookup.c
-+++ b/gcc/cp/name-lookup.c
-@@ -32,6 +32,7 @@ along with GCC; see the file COPYING3.  If not see
- #include "gcc-rich-location.h"
- #include "spellcheck-tree.h"
- #include "parser.h"
-+#include "plugin.h"
- #include "c-family/name-hint.h"
- #include "c-family/known-headers.h"
- #include "c-family/c-spellcheck.h"
-@@ -5141,6 +5142,12 @@ finish_nonmember_using_decl (tree scope, tree name)
-     {
-       tree *slot = find_namespace_slot (current_namespace, name, true);
- 
-+      {
-+	tree using_decl = build_lang_decl (USING_DECL, lookup.name, NULL_TREE);
-+	USING_DECL_SCOPE (using_decl) = scope;
-+	invoke_plugin_callbacks (PLUGIN_FINISH_DECL, using_decl);
-+      }
-+
-       tree value = MAYBE_STAT_DECL (*slot);
-       tree type = MAYBE_STAT_TYPE (*slot);
- 
-@@ -7263,6 +7270,9 @@ add_using_namespace (vec<tree, va_gc> *&usings, tree target)
- 	return;
- 
-   vec_safe_push (usings, target);
-+
-+  tree stmt = build_stmt (input_location, USING_STMT, target);
-+  invoke_plugin_callbacks (PLUGIN_FINISH_DECL, stmt);
- }
- 
- /* Tell the debug system of a using directive.  */
+gcc/cp/name-lookup.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)

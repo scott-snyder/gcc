@@ -1,5 +1,5 @@
-Bottom: 4bc0a9bfb43dd798a63029aaf559da8e5422381a
-Top:    5420e097243dcce7eadf5c6cfce1fcdc4ce22bc3
+Bottom: 85ecb80ed1fb0eb9e366607d9a39082250df5f8f
+Top:    5d01bd190a8f2f90a00a3393d5a22ff0a2c52faa
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:39:05 -0500
 
@@ -8,15 +8,5 @@ makefile addition
 
 ---
 
-diff --git a/gcc/Makefile.in b/gcc/Makefile.in
-index 543b477ff18..7077f93d0cb 100644
---- a/gcc/Makefile.in
-+++ b/gcc/Makefile.in
-@@ -3557,6 +3557,7 @@ PLUGIN_HEADERS = $(TREE_H) $(CONFIG_H) $(SYSTEM_H) coretypes.h $(TM_H) \
-   tree-ssa-alias.h $(INTERNAL_FN_H) gimple-fold.h tree-eh.h gimple-expr.h \
-   gimple.h is-a.h memmodel.h $(TREE_PASS_H) $(GCC_PLUGIN_H) \
-   $(GGC_H) $(TREE_DUMP_H) $(PRETTY_PRINT_H) $(OPTS_H) $(PARAMS_H) \
-+  $(INSN_ATTR_H) \
-   $(tm_file_list) $(tm_include_list) $(tm_p_file_list) $(tm_p_include_list) \
-   $(host_xm_file_list) $(host_xm_include_list) $(xm_include_list) \
-   intl.h $(PLUGIN_VERSION_H) $(DIAGNOSTIC_H) ${C_TREE_H} \
+gcc/Makefile.in | 1 +
+ 1 file changed, 1 insertion(+)

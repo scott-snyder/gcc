@@ -1,5 +1,5 @@
-Bottom: b544e703bf229eb499608901a003e494390166b3
-Top:    4bc0a9bfb43dd798a63029aaf559da8e5422381a
+Bottom: f56be82d99f6ec5989a8c3c8709e5603eb2da5f9
+Top:    85ecb80ed1fb0eb9e366607d9a39082250df5f8f
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:37:02 -0500
 
@@ -8,12 +8,5 @@ gitignore additions
 
 ---
 
-diff --git a/.gitignore b/.gitignore
-index d9d3967a12c..dd80578383e 100644
---- a/.gitignore
-+++ b/.gitignore
-@@ -1,3 +1,4 @@
-+NOTES
- *.diff
- *.patch
- *.orig
+.gitignore | 1 +
+ 1 file changed, 1 insertion(+)
