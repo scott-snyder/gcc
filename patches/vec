@@ -1,0 +1,12 @@
+Bottom: 627c616e88befb692ff848616afa93264bdfe924
+Top:    627c616e88befb692ff848616afa93264bdfe924
+Author: scott snyder <sss@karma>
+Date:   2020-11-29 15:28:49 -0500
+
+Fix plugin compilation with c++20.
+
+
+
+---
+
+
