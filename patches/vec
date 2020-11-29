@@ -5,6 +5,8 @@ Date:   2020-11-29 15:28:49 -0500
 
 Fix plugin compilation with c++20.
 
+bug 98059
+
 
 
 ---
