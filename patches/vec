@@ -1,5 +1,5 @@
 Bottom: 627c616e88befb692ff848616afa93264bdfe924
-Top:    627c616e88befb692ff848616afa93264bdfe924
+Top:    a9e3ff6aabe0d8117431a1f9d08a93ecc41ceb7e
 Author: scott snyder <sss@karma>
 Date:   2020-11-29 15:28:49 -0500
 
@@ -9,4 +9,5 @@ Fix plugin compilation with c++20.
 
 ---
 
-
+gcc/vec.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
