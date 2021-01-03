@@ -1,5 +1,5 @@
-Bottom: f7bb92ee2ac81248cc2a4dc58931f3a9879915cc
-Top:    627c616e88befb692ff848616afa93264bdfe924
+Bottom: a6580799ab46dd6767cb7be0515191c7083fef58
+Top:    a6580799ab46dd6767cb7be0515191c7083fef58
 Author: scott snyder <sss@karma>
 Date:   2020-02-01 10:42:33 -0500
 
@@ -8,5 +8,4 @@ name lookup plugin extensions
 
 ---
 
-gcc/cp/name-lookup.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+
