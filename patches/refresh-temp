@@ -1,0 +1,11 @@
+Bottom: a6580799ab46dd6767cb7be0515191c7083fef58
+Top:    195699d4f7129b79aed1ec512f4e580dde2595f3
+Author: scott snyder <sss@karma>
+Date:   2021-01-03 14:47:10 -0500
+
+Refresh of name-lookup
+
+---
+
+gcc/cp/name-lookup.c | 5 +++++
+ 1 file changed, 5 insertions(+)
