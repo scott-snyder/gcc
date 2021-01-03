@@ -1,5 +1,5 @@
-Bottom: a9e3ff6aabe0d8117431a1f9d08a93ecc41ceb7e
-Top:    14286238881507033639467be5e282a4e514408c
+Bottom: 195699d4f7129b79aed1ec512f4e580dde2595f3
+Top:    195699d4f7129b79aed1ec512f4e580dde2595f3
 Author: scott snyder <sss@karma>
 Date:   2020-11-29 16:31:21 -0500
 
@@ -10,5 +10,4 @@ bug 98062
 
 ---
 
-gcc/cp/cxx-pretty-print.c | 3 +++
- 1 file changed, 3 insertions(+)
+
