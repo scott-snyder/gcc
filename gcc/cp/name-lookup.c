@@ -5875,7 +5875,6 @@ lookup_using_decl (tree scope, name_lookup &lookup)
     }
 
   tree using_decl = build_lang_decl (USING_DECL, lookup.name, NULL_TREE);
-  invoke_plugin_callbacks (PLUGIN_FINISH_DECL, using_decl);
   USING_DECL_SCOPE (using_decl) = scope;
   USING_DECL_DECLS (using_decl) = lookup.value;
   DECL_DEPENDENT_P (using_decl) = dependent_p;
@@ -6304,6 +6303,7 @@ finish_nonmember_using_decl (tree scope, tree name)
 
   if (current_binding_level->kind == sk_namespace)
     {
+      invoke_plugin_callbacks (PLUGIN_FINISH_DECL, using_decl);
       tree *slot = find_namespace_slot (current_namespace, name, true);
       tree *mslot = get_fixed_binding_slot (slot, name,
 					    BINDING_SLOT_CURRENT, true);
