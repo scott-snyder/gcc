@@ -1,0 +1,22 @@
+Bottom: 270a3adc2c83bb761831a971c7edc47399d5e4e9
+Top:    650e4af6a5f478efda94429cd3f0fff6eb6bc037
+Author: scott snyder <sss@karma>
+Date:   2021-04-01 15:45:54 -0400
+
+Revert "Small refactoring of cgraph_node::release_body"
+
+This reverts commit d7145b4bb6c8729a1e782373cb6256c06ed60465.
+
+	PR lto/99447
+	* cgraph.c (cgraph_node::release_body): Remove all callers and
+	references.
+	* cgraphclones.c (cgraph_node::materialize_clone): Do not do it here.
+	* cgraphunit.c (cgraph_node::expand): And here.
+
+
+---
+
+gcc/cgraph.c       | 3 ---
+ gcc/cgraphclones.c | 6 +++++-
+ gcc/cgraphunit.c   | 4 ++++
+ 3 files changed, 9 insertions(+), 4 deletions(-)

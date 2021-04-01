@@ -1,10 +1,11 @@
 Version: 1
-Previous: b178faf7a0fc8a6f3af2e68350ded60476cd0789
-Head: 7f230c79d0df276b36b0ea4c00ee629e3bcdbe80
+Previous: ddf71cc84a239e0305a8ac6d4c35ad8e38bf2267
+Head: b229be19821738e0fee5373fdd0323b2b24b544f
 Applied:
   gitignore: ad5e5ac8076397bc749bd1c1d015b5d7ba2435dc
   make: 4914e38708e9b69c3c89227e8c119ea067af636e
   unique_warning: 76e0d83df0fb213737ca9d23cefe8da7deffe23c
   name-lookup: 7f230c79d0df276b36b0ea4c00ee629e3bcdbe80
+  small-refactoring-of: b229be19821738e0fee5373fdd0323b2b24b544f
 Unapplied:
 Hidden:
