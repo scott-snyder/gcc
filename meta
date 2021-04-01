@@ -1,5 +1,5 @@
 Version: 1
-Previous: 6bf0766e5394327312df8a699f8781f1cb10a793
+Previous: 35a8d4da1643b8593cc9386ca504f114b4ba136b
 Head: 7f230c79d0df276b36b0ea4c00ee629e3bcdbe80
 Applied:
   gitignore: ad5e5ac8076397bc749bd1c1d015b5d7ba2435dc
@@ -7,5 +7,4 @@ Applied:
   unique_warning: 76e0d83df0fb213737ca9d23cefe8da7deffe23c
   name-lookup: 7f230c79d0df276b36b0ea4c00ee629e3bcdbe80
 Unapplied:
-  small-refactoring-of: b229be19821738e0fee5373fdd0323b2b24b544f
 Hidden:
