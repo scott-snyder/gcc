@@ -1,0 +1,6 @@
+Bottom: c86f6fcef9c612fd1c1f4e211b604e101d396f93
+Top:    a09fcb107f0ac51e6a56c229b5c11c3d2a469940
+Author: scott snyder <sss@karma>
+Date:   2020-02-01 10:42:02 -0500
+
+unique_ptr warning
