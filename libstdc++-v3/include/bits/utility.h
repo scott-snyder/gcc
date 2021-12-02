@@ -213,6 +213,20 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<size_t _Idx>
     inline constexpr in_place_index_t<_Idx> in_place_index{};
 
+#ifdef __ROOTCLING__  
+     template<typename>
+    struct __is_in_place_type_impl : false_type
+    { };
+ 
+   template<typename _Tp>
+    struct __is_in_place_type_impl<in_place_type_t<_Tp>> : true_type
+    { };
+ 
+   template<typename _Tp>
+    struct __is_in_place_type
+      : public __is_in_place_type_impl<_Tp>
+    { };
+#else
   template<typename>
     inline constexpr bool __is_in_place_type_v = false;
 
@@ -221,6 +235,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
   template<typename _Tp>
     using __is_in_place_type = bool_constant<__is_in_place_type_v<_Tp>>;
+#endif
 
 #endif // C++17
 #endif // C++14

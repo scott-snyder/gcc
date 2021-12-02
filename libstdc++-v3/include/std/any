@@ -186,7 +186,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     template <typename _Tp, typename _VTp = _Decay_if_not_any<_Tp>,
 	      typename _Mgr = _Manager<_VTp>,
 	      enable_if_t<is_copy_constructible_v<_VTp>
+#ifndef __ROOTCLING__
 			  && !__is_in_place_type_v<_VTp>, bool> = true>
+#else
+                          && !__is_in_place_type<_VTp>::value, bool> = true>
+#endif
       any(_Tp&& __value)
       : _M_manager(&_Mgr::_S_manage)
       {
