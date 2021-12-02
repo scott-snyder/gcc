@@ -772,11 +772,13 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
     { typedef _Tp2 type; };
 
 #if __cplusplus >= 201703L
+#ifndef __ROOTCLING__
   template<typename _Tp1, typename _Tp2>
     inline constexpr size_t tuple_size_v<pair<_Tp1, _Tp2>> = 2;
 
   template<typename _Tp1, typename _Tp2>
     inline constexpr size_t tuple_size_v<const pair<_Tp1, _Tp2>> = 2;
+#endif
 #endif
 
   /// @cond undocumented
