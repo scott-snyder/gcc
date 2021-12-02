@@ -846,6 +846,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 	insert(_Pair&& __x)
 	{
 #if __cplusplus >= 201703L
+#ifndef __ROOTCLING__          
 	  using _P2 = remove_reference_t<_Pair>;
 	  if constexpr (__is_pair<_P2>)
 	    if constexpr (is_same_v<allocator_type, allocator<value_type>>)
@@ -860,6 +861,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
 		    }
 		  return {__i, false};
 		}
+#endif
 #endif
 	  return _M_t._M_emplace_unique(std::forward<_Pair>(__x));
 	}
