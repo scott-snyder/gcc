@@ -2109,7 +2109,7 @@ _GLIBCXX_BEGIN_NAMESPACE_CXX11
       _M_suffix()
       { return _Unchecked::operator[](_Unchecked::size() - 1); }
 
-      _Bi_iter _M_begin;
+      _Bi_iter _M_begin {};
       /// @endcond
     };
 
