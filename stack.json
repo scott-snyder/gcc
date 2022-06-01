@@ -1,15 +1,16 @@
 {
   "version": 5,
-  "prev": "406ae0753389b20fd679595d36f13656e5f8f0f2",
-  "head": "336e084b71bb104760bafa96c744bd76509c096d",
+  "prev": "c3b8bcfc60b319784d710ac5c725cf7dffd51e45",
+  "head": "f9d7b3b1b8d1cb18f4d45e35a07b45851c4d57e6",
   "applied": [
     "gitignore",
     "make",
     "unique_warning",
-    "name-lookup",
+    "name-lookup"
+  ],
+  "unapplied": [
     "rootcling"
   ],
-  "unapplied": [],
   "hidden": [],
   "patches": {
     "gitignore": {
