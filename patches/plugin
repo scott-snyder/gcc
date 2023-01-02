@@ -1,9 +1,0 @@
-Bottom: 310d3b74d9826b39385dc399cdec4e09445ce31c
-Top:    310d3b74d9826b39385dc399cdec4e09445ce31c
-Author: scott snyder <sss@karma>
-Date:   2022-11-30 22:16:11 -0500
-
-Missing plugin header.
-
-Need to add contracts.h to the list of cp plugin headers, as it's included
-by cp-tree.h.
