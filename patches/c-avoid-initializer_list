@@ -7,6 +7,8 @@ Revert "c++: avoid initializer_list<string> [PR105838]"
 
 This reverts commit d081807d8d70e3e87eae41e1560e54d503f4d465.
 
+See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=108047
+
 When constructing a vector<string> from { "strings" }, first is built an
 initializer_list<string>, which is then copied into the strings in the
 vector.  But this is inefficient: better would be treat the { "strings" }
