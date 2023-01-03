@@ -1,13 +1,13 @@
 {
   "version": 5,
-  "prev": "dd090e1f744161e7e5d5dc004d2fc7075261b364",
+  "prev": "98f60172c03a4476f4ed6ebbf200bd2bc6c1d279",
   "head": "75ad81d821bf6b96ec23e66760b361eb00b3e7f7",
   "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup",
-    "c-avoid-initializer_list"
+    "bug-108047"
   ],
   "unapplied": [],
   "hidden": [],
@@ -24,7 +24,7 @@
     "name-lookup": {
       "oid": "deb15ee32fe5af359afe37ee24124edd90443ee2"
     },
-    "c-avoid-initializer_list": {
+    "bug-108047": {
       "oid": "75ad81d821bf6b96ec23e66760b361eb00b3e7f7"
     }
   }
