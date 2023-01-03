@@ -1,7 +1,7 @@
 {
   "version": 5,
-  "prev": "b087659f74c8999acb24ba0b7f63350317c3327f",
-  "head": "8118c883c224bae6f962dd4468a9cba7a53e59d0",
+  "prev": "b53f566d8643041a72ee2b5ff45705c7a4698b9c",
+  "head": "59832381e51c35b716d99a9d55144327c6ff6e80",
   "applied": [
     "gitignore",
     "make",
@@ -25,7 +25,7 @@
       "oid": "deb15ee32fe5af359afe37ee24124edd90443ee2"
     },
     "c-avoid-initializer_list": {
-      "oid": "8118c883c224bae6f962dd4468a9cba7a53e59d0"
+      "oid": "59832381e51c35b716d99a9d55144327c6ff6e80"
     }
   }
 }
