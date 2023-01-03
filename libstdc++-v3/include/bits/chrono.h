@@ -251,12 +251,16 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 #if __cplusplus >= 201703L
     template<typename _Tp>
       inline constexpr bool __is_duration_v = false;
+#ifndef __CLING__
     template<typename _Rep, typename _Period>
       inline constexpr bool __is_duration_v<duration<_Rep, _Period>> = true;
+#endif
     template<typename _Tp>
       inline constexpr bool __is_time_point_v = false;
+#ifndef __CLING__
     template<typename _Clock, typename _Dur>
       inline constexpr bool __is_time_point_v<time_point<_Clock, _Dur>> = true;
+#endif
 #endif
 
     /// @endcond
@@ -315,6 +319,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       inline constexpr bool treat_as_floating_point_v =
 	treat_as_floating_point<_Rep>::value;
 
+#ifndef __CLING__
     template<>
       inline constexpr bool treat_as_floating_point_v<int> = false;
     template<>
@@ -327,6 +332,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       inline constexpr bool treat_as_floating_point_v<double> = true;
     template<>
       inline constexpr bool treat_as_floating_point_v<long double> = true;
+#endif
 #endif // C++17
 
 #if __cplusplus > 201703L
