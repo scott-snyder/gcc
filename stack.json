@@ -1,8 +1,9 @@
 {
   "version": 5,
-  "prev": "2c11f7c71613780fa6786b04a1526c9f0b7b93ee",
-  "head": "90385cf1bb5bffe46e43da5c935e707a5b89de19",
-  "applied": [
+  "prev": "9e570b44261f1a8326cf26d52d2d31711e005494",
+  "head": "8fdef16cd5d1b89359db3cd9a9768ab2d1b5081f",
+  "applied": [],
+  "unapplied": [
     "gitignore",
     "make",
     "unique_warning",
@@ -10,7 +11,6 @@
     "bug-108047",
     "cling"
   ],
-  "unapplied": [],
   "hidden": [],
   "patches": {
     "gitignore": {
