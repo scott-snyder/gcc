@@ -1,32 +1,33 @@
 {
   "version": 5,
-  "prev": "4fbe01a251ca030c839f9348606efcfd70370a48",
-  "head": "057eb31bc322b080dab87a52ad5629e3a439df82",
-  "applied": [],
-  "unapplied": [
+  "prev": "f7774a7342d73f9f0933b79ab11fd1e3186d3066",
+  "head": "d19201ac953bb7d1c46876c983719fba9123bd24",
+  "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup",
-    "bug-108047",
+    "bug-108047"
+  ],
+  "unapplied": [
     "cling"
   ],
   "hidden": [],
   "patches": {
     "gitignore": {
-      "oid": "a5f0f0d0ec12bd5f9a30902acfe2735a5675fe3d"
+      "oid": "11cd55b5f06936221f9b128be76bff5cb2352174"
     },
     "make": {
-      "oid": "63897256ac46ad2bd62c6c108526ec8c3572fd36"
+      "oid": "610461200fb9789188d4e8277d115d68a60ccca4"
     },
     "unique_warning": {
-      "oid": "9ae99bda767d63c65c2e06d05fd965ef2bf56c0f"
+      "oid": "ad1f4086dd1e0015a24248c3bf9a80c077fa9e71"
     },
     "name-lookup": {
-      "oid": "deb15ee32fe5af359afe37ee24124edd90443ee2"
+      "oid": "93c5d56ac89a99d25585d62126c63212738fa7b6"
     },
     "bug-108047": {
-      "oid": "75ad81d821bf6b96ec23e66760b361eb00b3e7f7"
+      "oid": "d19201ac953bb7d1c46876c983719fba9123bd24"
     },
     "cling": {
       "oid": "90385cf1bb5bffe46e43da5c935e707a5b89de19"
