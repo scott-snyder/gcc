@@ -1,13 +1,12 @@
 {
   "version": 5,
-  "prev": "77a234074209cbb24d557a6bbf4d2f699fb07de5",
-  "head": "68d4fae802eaf64f466cd433d4e3a6fd85676e90",
+  "prev": "f083e2be2b2c7d8bd907e1a35fed517ea751390b",
+  "head": "47e3349e969c1a95ef66af4d05c237f407d33cba",
   "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup",
-    "bug-108047",
     "cling"
   ],
   "unapplied": [],
@@ -25,11 +24,8 @@
     "name-lookup": {
       "oid": "93c5d56ac89a99d25585d62126c63212738fa7b6"
     },
-    "bug-108047": {
-      "oid": "d19201ac953bb7d1c46876c983719fba9123bd24"
-    },
     "cling": {
-      "oid": "68d4fae802eaf64f466cd433d4e3a6fd85676e90"
+      "oid": "47e3349e969c1a95ef66af4d05c237f407d33cba"
     }
   }
 }
