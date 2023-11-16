@@ -1,13 +1,14 @@
 {
   "version": 5,
-  "prev": "10acf2debe0473b187116476a34a577ee7fe5957",
-  "head": "bd5c12242b26f8e6c5c3f2856d9b9ca6202694bb",
+  "prev": "45b062e3c8c9fbd1d08686e3ea4c8b60979a52ec",
+  "head": "969e4254c1a38788c19d598a30abce458372755f",
   "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup",
-    "cling"
+    "cling",
+    "cling2"
   ],
   "unapplied": [],
   "hidden": [],
@@ -26,6 +27,9 @@
     },
     "cling": {
       "oid": "bd5c12242b26f8e6c5c3f2856d9b9ca6202694bb"
+    },
+    "cling2": {
+      "oid": "969e4254c1a38788c19d598a30abce458372755f"
     }
   }
 }
