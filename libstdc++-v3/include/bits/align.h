@@ -94,7 +94,9 @@ align(size_t __align, size_t __size, void*& __ptr, size_t& __space) noexcept
     constexpr _Tp*
     assume_aligned(_Tp* __ptr) noexcept
     {
+#ifndef __CLING__
       static_assert(std::has_single_bit(_Align));
+#endif
       if (std::is_constant_evaluated())
 	return __ptr;
       else
