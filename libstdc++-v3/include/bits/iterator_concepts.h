@@ -992,14 +992,18 @@ namespace ranges
     // Simplified version of std::ranges::begin that only supports lvalues,
     // for use by __range_iter_t below.
     template<typename _Tp>
+#ifndef __CLING__
       requires is_array_v<_Tp> || __member_begin<_Tp&> || __adl_begin<_Tp&>
+#endif
       auto
       __begin(_Tp& __t)
       {
 	if constexpr (is_array_v<_Tp>)
 	  return __t + 0;
+#ifndef __CLING__
 	else if constexpr (__member_begin<_Tp&>)
 	  return __t.begin();
+#endif
 	else
 	  return begin(__t);
       }
@@ -1008,9 +1012,18 @@ namespace ranges
   namespace __detail
   {
     // Implementation of std::ranges::iterator_t, without using ranges::begin.
+#ifndef __CLING__
     template<typename _Tp>
       using __range_iter_t
 	= decltype(ranges::__access::__begin(std::declval<_Tp&>()));
+#else
+    template <typename _Tp>
+    struct __range_iter_tmp {
+      using type = decltype(ranges::__access::__begin(std::declval<_Tp&>()));
+    };
+    template <typename _Tp>
+    using __range_iter_t = typename __range_iter_tmp<_Tp>::type;
+#endif
 
   } // namespace __detail
 
