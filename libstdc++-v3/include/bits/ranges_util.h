@@ -129,26 +129,34 @@ namespace ranges
 
       constexpr auto
       data() noexcept(noexcept(ranges::begin(_M_derived())))
+#ifndef __CLING__
       requires contiguous_iterator<iterator_t<_Derived>>
+#endif
       { return std::to_address(ranges::begin(_M_derived())); }
 
       constexpr auto
       data() const noexcept(noexcept(ranges::begin(_M_derived())))
+#ifndef __CLING__
       requires range<const _Derived>
 	&& contiguous_iterator<iterator_t<const _Derived>>
+#endif
       { return std::to_address(ranges::begin(_M_derived())); }
 
       constexpr auto
       size() noexcept(noexcept(_S_size(_M_derived())))
+#ifndef __CLING__
       requires forward_range<_Derived>
 	&& sized_sentinel_for<sentinel_t<_Derived>, iterator_t<_Derived>>
+#endif
       { return _S_size(_M_derived()); }
 
       constexpr auto
       size() const noexcept(noexcept(_S_size(_M_derived())))
+#ifndef __CLING__
       requires forward_range<const _Derived>
 	&& sized_sentinel_for<sentinel_t<const _Derived>,
 			      iterator_t<const _Derived>>
+#endif
       { return _S_size(_M_derived()); }
 
       constexpr decltype(auto)
@@ -259,6 +267,31 @@ namespace ranges
 	   subrange_kind _Kind = sized_sentinel_for<_Sent, _It>
 	     ? subrange_kind::sized : subrange_kind::unsized>
     requires (_Kind == subrange_kind::sized || !sized_sentinel_for<_Sent, _It>)
+#ifdef __CLING__
+    class subrange;
+
+}
+namespace __detail {
+template <class _It, class _Sent, ranges::subrange_kind _Kind>
+struct __range_iter_tmp<const ranges::subrange<_It, _Sent, _Kind> > {
+  using type = _It;
+};
+template <class _It, class _Sent, ranges::subrange_kind _Kind>
+struct __range_iter_tmp<ranges::subrange<_It, _Sent, _Kind> > {
+  using type = _It;
+};
+template <class _It, class _Sent, ranges::subrange_kind _Kind>
+struct __range_iter_tmp<ranges::subrange<_It, _Sent, _Kind>& > {
+  using type = _It;
+};
+
+}
+namespace ranges {
+
+  template<input_or_output_iterator _It, sentinel_for<_It> _Sent,
+	   subrange_kind _Kind>
+    requires (_Kind == subrange_kind::sized || !sized_sentinel_for<_Sent, _It>)
+#endif
     class subrange : public view_interface<subrange<_It, _Sent, _Kind>>
     {
     private:
