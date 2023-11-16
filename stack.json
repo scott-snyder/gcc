@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "prev": "c0ec8fb0432fc232282567339cb628ed69fb488e",
+  "prev": "eb6e93db2bf5ef2d698d0dfb3814697c9b2506c3",
   "head": "7d92a47b47fce895f914ad769b09f5f3b70591d8",
   "applied": [
     "gitignore",
@@ -9,9 +9,7 @@
     "name-lookup",
     "cling2"
   ],
-  "unapplied": [
-    "cling"
-  ],
+  "unapplied": [],
   "hidden": [],
   "patches": {
     "gitignore": {
@@ -28,9 +26,6 @@
     },
     "cling2": {
       "oid": "7d92a47b47fce895f914ad769b09f5f3b70591d8"
-    },
-    "cling": {
-      "oid": "bd5c12242b26f8e6c5c3f2856d9b9ca6202694bb"
     }
   }
 }
