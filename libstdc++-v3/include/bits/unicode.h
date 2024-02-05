@@ -533,7 +533,11 @@ namespace __unicode
 	friend class _Utf_iterator;
     };
 
+#ifdef __CLING__
+  template<typename _ToFormat, typename _Range>
+#else
   template<typename _ToFormat, ranges::input_range _Range>
+#endif
     class _Utf_view
     : public ranges::view_interface<_Utf_view<_ToFormat, _Range>>
     {
@@ -570,7 +574,11 @@ namespace __unicode
       _Utf_view(_Range&& __r) : _M_base(std::forward<_Range>(__r)) { }
 
       constexpr auto begin()
+#ifdef __CLING__
+      { return _M_begin(std::begin(_M_base), std::end(_M_base)); }
+#else
       { return _M_begin(ranges::begin(_M_base), ranges::end(_M_base)); }
+#endif
 
       constexpr auto end()
       { return _M_end(ranges::begin(_M_base), ranges::end(_M_base)); }
@@ -715,7 +723,11 @@ inline namespace __v15_1_0
   };
 
   // Split a range into extended grapheme clusters.
+#ifdef __CLING__
+  template<typename/*ranges::forward_range*/ _View> //requires ranges::view<_View>
+#else
   template<ranges::forward_range _View> requires ranges::view<_View>
+#endif
     class _Grapheme_cluster_view
     : public ranges::view_interface<_Grapheme_cluster_view<_View>>
     {

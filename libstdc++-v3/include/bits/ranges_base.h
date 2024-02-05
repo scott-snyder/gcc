@@ -510,7 +510,11 @@ namespace ranges
   template<typename _Tp>
     using iterator_t = std::__detail::__range_iter_t<_Tp>;
 
+#ifdef __CLING__
+  template<typename _Range>
+#else
   template<range _Range>
+#endif
     using sentinel_t = decltype(ranges::end(std::declval<_Range&>()));
 
 #if __cplusplus > 202002L
@@ -527,7 +531,11 @@ namespace ranges
   template<range _Range>
     using range_difference_t = iter_difference_t<iterator_t<_Range>>;
 
+#ifdef __CLING__
+  template<typename _Range>
+#else
   template<range _Range>
+#endif
     using range_value_t = iter_value_t<iterator_t<_Range>>;
 
   template<range _Range>
