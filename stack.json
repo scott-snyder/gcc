@@ -1,31 +1,31 @@
 {
   "version": 5,
-  "prev": "a12d08ed21b1647cac59edf9a2a854571ecff7f2",
-  "head": "97474ba2075dc3c397bbc2861646561dcfd13386",
-  "applied": [],
-  "unapplied": [
+  "prev": "69c2ed693422c74ebc31cafbca432b451597ae06",
+  "head": "8d7fcd5cbc7d64395011b578f219727d365a773e",
+  "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup",
     "cling"
   ],
+  "unapplied": [],
   "hidden": [],
   "patches": {
     "gitignore": {
-      "oid": "d873212014b1364bf225eca719eec2bd7d29d5d9"
+      "oid": "0133c24efd725319aed26c3a965f2a3d5ded5c31"
     },
     "make": {
-      "oid": "16c392ecf36da8f8bc09f30dfcdf88a398bc9b0e"
+      "oid": "5e344dc59e1606b01379c7f34677c07d03606a1c"
     },
     "unique_warning": {
-      "oid": "aa2b045f20975565f051d2b6173d9be6d00bc4f2"
+      "oid": "99e275a88d271f229a77e69b68bf109a520a35a6"
     },
     "name-lookup": {
-      "oid": "f1734d9bae8428b42ec71e7826b14d3e9ea83f50"
+      "oid": "8209d2a277325c8cb0202a10ffc123fe4de662da"
     },
     "cling": {
-      "oid": "90db7790a83ec49931bb8fba1ab162ce305ac98f"
+      "oid": "8d7fcd5cbc7d64395011b578f219727d365a773e"
     }
   }
 }
