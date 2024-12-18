@@ -1,0 +1,40 @@
+Bottom: 8b4934f9db7e17e7b22fdc4f19a18130ac11015d
+Top:    1ecbb0d819c079c3d39d68dfcbc1d3b41623a506
+Author: Prathamesh Kulkarni <prathameshk@nvidia.com>
+Date:   2024-12-18 10:53:23 -0500
+
+Revert "PR81358: Enable automatic linking of libatomic."
+
+This reverts commit e2f6ed54f75bbf8dd0292af90304890f06a9be17.
+
+
+ChangeLog:
+	PR driver/81358
+	* Makefile.def: Add dependencies so libatomic is built before target
+	libraries are configured.
+	* Makefile.tpl: Export TARGET_CONFIGDIRS.
+	* configure.ac: Add libatomic to bootstrap_target_libs.
+	* Makefile.in: Regenerate.
+	* configure: Regenerate.
+
+gcc/ChangeLog:
+	PR driver/81358
+	* common.opt: New option -flink-libatomic.
+	* gcc.cc (LINK_LIBATOMIC_SPEC): New macro.
+	* config/gnu-user.h (GNU_USER_TARGET_LINK_GCC_C_SEQUENCE_SPEC): Use
+	LINK_LIBATOMIC_SPEC.
+	* doc/invoke.texi: Document -flink-libatomic.
+	* configure.ac: Define TARGET_PROVIDES_LIBATOMIC.
+	* configure: Regenerate.
+	* config.in: Regenerate.
+
+libatomic/ChangeLog:
+	PR driver/81358
+	* Makefile.am: Pass -fno-link-libatomic.
+	New rule all.
+	* configure.ac: Assert that CFLAGS is set and pass -fno-link-libatomic.
+	* Makefile.in: Regenerate.
+	* configure: Regenerate.
+
+Signed-off-by: Prathamesh Kulkarni <prathameshk@nvidia.com>
+Co-authored-by: Matthew Malcolmson <mmalcolmson@nvidia.com>
