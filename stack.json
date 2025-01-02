@@ -1,15 +1,15 @@
 {
   "version": 5,
-  "prev": "89c1d901a8442775ba87aebf3c95366295685d48",
-  "head": "d3305dffd5e1d3a67ced55a178a7d1194aa1876a",
-  "applied": [],
-  "unapplied": [
+  "prev": "10409f7e6c5dfec12e35a01ef1ad3fd5ae51cbbe",
+  "head": "06d5fededcb0d92f466bb416151019f11d357a52",
+  "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup",
     "revert-PR81358-Enable-automatic"
   ],
+  "unapplied": [],
   "hidden": [
     "cling"
   ],
@@ -18,19 +18,19 @@
       "oid": "5d56a758efa3846ccf7cdeed7dbcbf3601945b22"
     },
     "gitignore": {
-      "oid": "01faff5760472aa2400548b9d741e39fbefb9d5b"
+      "oid": "aeb9a29c74cbf878e235e310fc765675cadbeaaa"
     },
     "make": {
-      "oid": "93b1dec95299c8296c00b8e2aa76f8581a2e3015"
+      "oid": "5a9be6ab1692db465f521a2adc5a22865d7c11f5"
     },
     "name-lookup": {
-      "oid": "1007c3cc471508856432b89710507e47c0cb8807"
+      "oid": "3c103b88e763a461756cfaae4ec22ac067b99b95"
     },
     "revert-PR81358-Enable-automatic": {
-      "oid": "1859fdbc407d6a59880b1e5759883a404db7dade"
+      "oid": "06d5fededcb0d92f466bb416151019f11d357a52"
     },
     "unique_warning": {
-      "oid": "32006b241ea38bc849f053261c774b9743092361"
+      "oid": "5d16411896182995f3fe409838c954fbf4414695"
     }
   }
 }
