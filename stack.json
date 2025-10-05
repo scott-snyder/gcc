@@ -1,14 +1,14 @@
 {
   "version": 5,
-  "prev": "161aec1046707e63f439432baaab80d2cdcae459",
-  "head": "7ec702536bb759f4b1cc848d5a7670ab01edc90d",
-  "applied": [],
-  "unapplied": [
+  "prev": "83bc75bd50019d62bcf3bd8a2b1c3ef8393f5f7e",
+  "head": "83683da887e69313acec67e9d43ff08c929b7d5b",
+  "applied": [
     "gitignore",
     "make",
     "unique_warning",
     "name-lookup"
   ],
+  "unapplied": [],
   "hidden": [
     "cling"
   ],
@@ -17,16 +17,16 @@
       "oid": "5d56a758efa3846ccf7cdeed7dbcbf3601945b22"
     },
     "gitignore": {
-      "oid": "55d6e130e6056b3373ce109a934f404cf00f9ed0"
+      "oid": "b82e105eb68294a60953dfe5295ececfc76c324b"
     },
     "make": {
-      "oid": "0e9f017489e7398c565aaa1ede8eea9df8d18e8e"
+      "oid": "72fe832716192b5d5e9a3e38b9e2f83838c15844"
     },
     "name-lookup": {
-      "oid": "7a5dd08ed9380b35acf2f61cf2b62787de2d0336"
+      "oid": "83683da887e69313acec67e9d43ff08c929b7d5b"
     },
     "unique_warning": {
-      "oid": "aaa04c8a037c20a3a312a4c08bb60432bb413cae"
+      "oid": "41bb8814260ac5182e7b128a3e786d4c8bfcea14"
     }
   }
 }
