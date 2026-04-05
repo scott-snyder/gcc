@@ -8789,7 +8789,7 @@ ix86_need_alignment_p_1 (rtx set, unsigned int alignment)
   rtx dest = SET_DEST (set);
 
   if (MEM_P (dest))
-    return GET_MODE_ALIGNMENT (GET_MODE (dest)) > alignment;
+    return MEM_ALIGN (dest) > alignment;
 
   const_rtx src = SET_SRC (set);
 
@@ -8799,7 +8799,7 @@ ix86_need_alignment_p_1 (rtx set, unsigned int alignment)
       auto op = *iter;
 
       if (MEM_P (op))
-	return GET_MODE_ALIGNMENT (GET_MODE (op)) > alignment;
+	return MEM_ALIGN (op) > alignment;
     }
 
   return false;
@@ -8890,6 +8890,9 @@ ix86_find_max_used_stack_alignment (unsigned int &stack_alignment,
       bitmap_set_bit (worklist, HARD_FRAME_POINTER_REGNUM);
     }
 
+  /* Registers on HARD_STACK_SLOT_ACCESS always access stack.  */
+  HARD_REG_SET hard_stack_slot_access = stack_slot_access;
+
   calculate_dominance_info (CDI_DOMINATORS);
 
   unsigned int regno;
@@ -8926,10 +8929,12 @@ ix86_find_max_used_stack_alignment (unsigned int &stack_alignment,
 	  /* Call ix86_access_stack_p only if INSN needs alignment >
 	     STACK_ALIGNMENT.  */
 	  if (ix86_need_alignment_p (insn, stack_alignment)
-	      && ix86_access_stack_p (regno, BLOCK_FOR_INSN (insn),
-				      set_up_by_prologue, prologue_used,
-				      reg_dominate_bbs_known,
-				      reg_dominate_bbs))
+	      && (TEST_HARD_REG_BIT (hard_stack_slot_access, regno)
+		  || ix86_access_stack_p (regno, BLOCK_FOR_INSN (insn),
+					  set_up_by_prologue,
+					  prologue_used,
+					  reg_dominate_bbs_known,
+					  reg_dominate_bbs)))
 	    {
 	      /* Update stack alignment if REGNO is used for stack
 		 access.  */
