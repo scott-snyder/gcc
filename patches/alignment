@@ -1,0 +1,77 @@
+Bottom: 956975a190140ac200b82aed9d920dd48dcdcfdf
+Top:    956975a190140ac200b82aed9d920dd48dcdcfdf
+Author: sss <sss@karma>
+Date:   2026-04-05 16:30:25 -0400
+
+From b0ddf3f222e0109ba9c97c36cfd800c54bb435c9 Mon Sep 17 00:00:00 2001
+From: "H.J. Lu" <hjl.tools@gmail.com>
+Date: Fri, 3 Apr 2026 15:55:17 +0800
+Subject: [PATCH] Correct x86: Call ix86_access_stack_p only for larger
+ alignment
+
+commit f511bf93f947199a9f9099fee87b7052e5515fb9
+Author: H.J. Lu <hjl.tools@gmail.com>
+Date:   Sun Mar 29 14:30:28 2026 -0700
+
+    x86: Call ix86_access_stack_p only for larger alignment
+
+has 2 issues:
+
+1. It is incorrect to use GET_MODE_ALIGNMENT as memory alignment since
+memory alignment can be different from mode alignment as in
+
+(set (reg:OI 20 xmm0 [orig:112 s ] [112])
+     (mem/c:OI (plus:DI (reg/f:DI 7 sp)
+            (const_int -32 [0xffffffffffffffe0])) [3 s+0 S32 A128]))
+
+MEM_ALIGN should be used instead.
+
+2. It replaced:
+
+  HARD_REG_SET hard_stack_slot_access = stack_slot_access;
+  ...
+      bool symbolic_const_load_p = false;
+
+      if (!TEST_HARD_REG_BIT (hard_stack_slot_access, regno))
+        ...
+        symbolic_const_load_p = true;
+      ...
+
+      if (!symbolic_const_load_p
+          || ix86_access_stack_p...)
+        call ix86_update_stack_alignment.
+
+with
+
+      if (ix86_need_alignment_p...
+          && ix86_access_stack_p...)
+        call ix86_update_stack_alignment.
+
+Since ix86_access_stack_p excludes registers on hard_stack_slot_access,
+stack alignment isn't updated for registers on hard_stack_slot_access.
+Instead, we should do
+
+      if (ix86_need_alignment_p...
+          && (TEST_HARD_REG_BIT (hard_stack_slot_access, regno)
+              || ix86_access_stack_p...))
+        call ix86_update_stack_alignment.
+
+gcc/
+
+        PR target/124759
+        * config/i386/i386.cc (ix86_need_alignment_p_1): Replace
+        GET_MODE_ALIGNMENT with MEM_ALIGN.
+        (ix86_find_max_used_stack_alignment): Restore
+        hard_stack_slot_access handling.
+
+gcc/testsuite/
+
+        PR target/124759
+        * gcc.target/i386/pr124759.c: New test.
+
+Signed-off-by: H.J. Lu <hjl.tools@gmail.com>
+---
+ gcc/config/i386/i386.cc                  | 17 +++++++++-----
+ gcc/testsuite/gcc.target/i386/pr124759.c | 29 ++++++++++++++++++++++++
+ 2 files changed, 40 insertions(+), 6 deletions(-)
+ create mode 100644 gcc/testsuite/gcc.target/i386/pr124759.c
